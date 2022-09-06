@@ -11,4 +11,5 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
           quarto --version
-          quarto render --to html markdown/
+          cd markdown
+          quarto render index.md --to html
