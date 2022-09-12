@@ -2,7 +2,7 @@ name: quarto-setup
 
 on: 
   push:
-    branches: jp-test
+    branches: none
 
 jobs:
   quarto-linux:
