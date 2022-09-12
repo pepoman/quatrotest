@@ -23,8 +23,12 @@ jobs:
         with:
           to: html # If set, it will be equivalent to `quarto render --to html`
           path: markdown/*.md --output-dir output/ # By default, the current working dir is used i.e `quarto render .`
-
-
+      - run: |
+          quarto --version
+          echo working directory
+          pwd
+          echo show files
+          ls -l
 
 
 
