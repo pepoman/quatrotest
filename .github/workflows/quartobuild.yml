@@ -20,7 +20,7 @@ jobs:
       - name: copy file
         uses: canastro/copy-file-action@master
         with:
-          source: "/home/runner/work/quatrotest/quatrotest"
+          source: "/home/runner/work/quatrotest/quatrotest/"
           target: "/output"
 
 
