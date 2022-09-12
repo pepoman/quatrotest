@@ -2,7 +2,7 @@ name: quarto-setup
 
 on: 
   push:
-    branches: none
+    branches: jp-test
 
 jobs:
   quarto-linux:
@@ -15,3 +15,4 @@ jobs:
           pwd
           ls -l
           quarto render markdown/index.md --to html
+          mv *.html output/
