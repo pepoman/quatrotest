@@ -15,4 +15,4 @@ jobs:
           pwd
           ls -l
           quarto render markdown/index.md --to html
-          mv *.html output/
+          mv *.md output/
