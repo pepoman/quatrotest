@@ -18,3 +18,6 @@ jobs:
           echo working directory
           pwd
           ls -l
+          cd output
+          echo output content
+          ls -l
