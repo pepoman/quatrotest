@@ -29,7 +29,11 @@ jobs:
           pwd
           echo show files
           ls -l
-
+          echo change to output folder
+          cd output
+          pwd
+          echo show files in output
+          ls -l
 
 
 
