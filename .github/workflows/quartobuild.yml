@@ -10,22 +10,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
-#      - run: |
+      - run: |
+           quarto create-project myproject
 #          quarto render markdown/index.md --to html
 #          echo show files
 #          ls -l
           
-      - name: Render Quarto Project
-        uses: quarto-dev/quarto-actions/render@v2
-        with:
-          to: html # If set, it will be equivalent to `quarto render --to html`
-          path: myproject # By default, the current working dir is used i.e `quarto render .`
-#      - run: |
-#          quarto --version
-#          echo working directory
-#          pwd
-#          echo show files
-#          ls -l
+#      - name: Render Quarto Project
+#        uses: quarto-dev/quarto-actions/render@v2
+#        with:
+#          to: html # If set, it will be equivalent to `quarto render --to html`
+#          path: myproject # By default, the current working dir is used i.e `quarto render .`
+
 
 
 
