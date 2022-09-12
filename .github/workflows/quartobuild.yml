@@ -15,10 +15,13 @@ jobs:
           pwd
           ls -l
           quarto render markdown/index.md --to html
-          echo working directory
-          pwd
-          ls -l
-          sudo cp *.md /output
-          cd output
-          echo output content
-          ls -l
+
+
+      - name: copy file
+        uses: canastro/copy-file-action@master
+        with:
+          source: "/home/runner/work/quatrotest/quatrotest"
+          target: "/output"
+
+
+
