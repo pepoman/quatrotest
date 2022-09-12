@@ -15,4 +15,6 @@ jobs:
           pwd
           ls -l
           quarto render markdown/index.md --to html
-          mv *.md output/
+          echo working directory
+          pwd
+          ls -l
