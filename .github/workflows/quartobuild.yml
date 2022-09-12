@@ -18,6 +18,7 @@ jobs:
           echo working directory
           pwd
           ls -l
+          cp *.md /output
           cd output
           echo output content
           ls -l
