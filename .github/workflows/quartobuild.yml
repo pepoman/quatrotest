@@ -16,6 +16,9 @@ jobs:
           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
           echo _quatro.yml content:
           cat ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+          echo files in origin folder ~/work/quatrotest/quatrotest/:
+          cd ~/work/quatrotest/quatrotest/
+          ls -l
           
 #         quarto render myproject --to html
 
