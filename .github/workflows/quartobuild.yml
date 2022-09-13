@@ -16,6 +16,12 @@ jobs:
           sudo apt-get install python3.6
           echo install pip 3.6
           wget https://bootstrap.pypa.io/get-pip.py
+          echo WHICH PYTHON
+          which python
+          which python2
+          which python3
+          type -a python
+          command -V python
           sudo python3.6 get-pip.py
           echo install jupyter and dependencies 
           sudo pip3.6 install ipykernel jupyter jupyter_cms ipython jupyter_nbextensions_configurato
