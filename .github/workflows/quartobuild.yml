@@ -16,8 +16,6 @@ jobs:
            sudo apt-get install texlive
            echo STARTING R
            R --vanilla
-           install.packages(“tinytex”)
-           tinytex::install_tinytex() 
            install.packages(“rmarkdown”)
            quarto create-project myproject
            cd myproject; rm _quarto.yml
@@ -26,6 +24,9 @@ jobs:
            quarto render --to html
 
 
+#         install.packages(“tinytex”)
+#         tinytex::install_tinytex() 
+##
 
 #          sudo apt-get update
 #          sudo apt-get install python3.6; wget https://bootstrap.pypa.io/get-pip.py; sudo /usr/bin/python get-pip.py
