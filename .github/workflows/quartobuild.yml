@@ -16,7 +16,7 @@ jobs:
           pip install jupyter_nbextensions_configurator
           git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
           pip install -e jupyter_contrib_nbextensions; pip install jupyter-latex-envs
-          sudo ~/.local/bin/jupyter-notebook nbextension install --py latex_envs
+          sudo ~/.local/bin/jupyter nbextension install --py latex_envs
           quarto create-project myproject
           cd myproject; rm _quarto.yml
           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
