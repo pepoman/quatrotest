@@ -16,10 +16,10 @@ jobs:
           quarto create-project myproject
           echo list files after creating proyect
           ls -l
-          echo original _quarto.yml file
-          cat _quarto.yml
           echo files inside of myproject
           cd myproject
+          rm _quarto.yml
+          ln -sf /home/runner/work/quatrotest/quatrotest/_quarto.yml /home/runner/work/quatrotest/quatrotest/myproject/_quarto.yml
           ls -l
           cat _quarto.yml
 
