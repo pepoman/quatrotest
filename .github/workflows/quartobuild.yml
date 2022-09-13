@@ -14,9 +14,6 @@ jobs:
            sudo apt-get update
            sudo apt-get install pandoc
            sudo apt-get install texlive
-           echo STARTING R
-           R --vanilla
-           install.packages(“rmarkdown”)
            quarto create-project myproject
            cd myproject; rm _quarto.yml
            mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
