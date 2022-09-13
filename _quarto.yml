@@ -2,7 +2,7 @@ project:
   type: website
   title: "posit-blogs"
   render:
-    - markdown/*.md
+    - markdown/index.md
   output-dir: public
 
 format:
