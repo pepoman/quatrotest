@@ -15,20 +15,9 @@ jobs:
           cd myproject; rm _quarto.yml
           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
           mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-          echo print working directory:
-          pwd
-          pwd
           quarto render --to html
 
 
-#          echo crating symbolic link
-#          ln -sf _quarto.yml /home/runner/work/quatrotest/quatrotest/myproject/_quarto.yml
-
-#      - name: Render Quarto Project
-#        uses: quarto-dev/quarto-actions/render@v2
-#        with:
-#          to: html # If set, it will be equivalent to `quarto render --to html`
-#          path: myproject # By default, the current working dir is used i.e `quarto render .`
 
 
 
