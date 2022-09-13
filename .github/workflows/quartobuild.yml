@@ -13,12 +13,9 @@ jobs:
       - run: |
           sudo apt-get update
           sudo apt-get install python3.6; wget https://bootstrap.pypa.io/get-pip.py; sudo /usr/bin/python get-pip.py
-          pip install jupyter
-          pip install jupyter_nbextensions_configurator
+          pip install jupyter; pip install jupyter_nbextensions_configurator
           git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
           pip install -e jupyter_contrib_nbextensions; pip install jupyter-latex-envs
-          sudo apt-get install r-base
-          install.packages("rmarkdown")
           quarto create-project myproject
           cd myproject; rm _quarto.yml
           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
