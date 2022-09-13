@@ -19,7 +19,7 @@ jobs:
           echo files inside of myproject
           cd myproject
           rm _quarto.yml
-          ln -sf /home/runner/work/quatrotest/quatrotest/_quarto.yml /home/runner/work/quatrotest/quatrotest/myproject/_quarto.yml
+          mv /home/runner/work/quatrotest/quatrotest/_quarto.yml /home/runner/work/quatrotest/quatrotest/myproject/_quarto.yml
           ls -l
           cat _quarto.yml
 
