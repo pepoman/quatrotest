@@ -17,6 +17,7 @@ jobs:
           pip install jupyter_nbextensions_configurator
           git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
           pip install -e jupyter_contrib_nbextensions; pip install jupyter-latex-envs
+          sudo apt-get install r-base
           install.packages("rmarkdown")
           quarto create-project myproject
           cd myproject; rm _quarto.yml
