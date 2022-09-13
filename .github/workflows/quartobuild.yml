@@ -20,7 +20,7 @@ jobs:
           cd myproject
           ls -l
           echo crating symbolic link
-          ln -s _quarto.yml /home/runner/work/quatrotest/quatrotest/myproject/_quarto.yml
+          ln -sf _quarto.yml /home/runner/work/quatrotest/quatrotest/myproject/_quarto.yml
 
 #      - name: Render Quarto Project
 #        uses: quarto-dev/quarto-actions/render@v2
