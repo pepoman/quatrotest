@@ -13,20 +13,18 @@ jobs:
       - run: |
           sudo apt-get update
           sudo apt-get install python3.6; wget https://bootstrap.pypa.io/get-pip.py; sudo /usr/bin/python get-pip.py
-          echo INSTALL jupyter configurator
           pip install jupyter_nbextensions_configurator
-          echo INSTALL jupyter
-          git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
-          pip install -e jupyter_contrib_nbextensions
-   
+          git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git; pip install -e jupyter_contrib_nbextensions
+          echo Jupyter installation complete
+          quarto create-project myproject
+          cd myproject; rm _quarto.yml
+          mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+          mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
+          quarto render --to html
+
    
    ##     sudo /usr/bin/python -m pip install ipykernel jupyter jupyter_cms ipython jupyter_nbextensions_configurato
      ##   jupyter nbextensions_configurator enable --user 
-      #    quarto create-project myproject
-      #    cd myproject; rm _quarto.yml
-      #    mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-      #    mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-      #    quarto render --to html
 
 
 
