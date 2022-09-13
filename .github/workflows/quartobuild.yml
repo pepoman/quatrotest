@@ -16,7 +16,7 @@ jobs:
           echo INSTALL jupyter configurator
           pip install jupyter_nbextensions_configurator
           echo INSTALL jupyter
-      #   sudo /usr/bin/python -m pip install ipykernel jupyter jupyter_cms ipython jupyter_nbextensions_configurato
+          sudo /usr/bin/python -m pip install ipykernel jupyter jupyter_cms ipython jupyter_nbextensions_configurato
       #    quarto create-project myproject
       #    cd myproject; rm _quarto.yml
       #    mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
