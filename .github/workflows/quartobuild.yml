@@ -14,6 +14,7 @@ jobs:
           quarto create-project myproject
           cd myproject; rm _quarto.yml
           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+          mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
           echo _quatro.yml content:
           cat ~/work/quatrotest/quatrotest/myproject/_quarto.yml
           echo files in origin folder ~/work/quatrotest/quatrotest/:
