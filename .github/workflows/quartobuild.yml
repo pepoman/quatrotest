@@ -13,7 +13,11 @@ jobs:
       - run: |
           echo show files
           ls -l
-  # quarto create-project
+          quarto create-project myproject
+          mv -f _quarto.yml /myproyect/
+          cd myproyect
+          echo list contents of my project:
+          ls -l
                     
 #      - name: Render Quarto Project
 #        uses: quarto-dev/quarto-actions/render@v2
