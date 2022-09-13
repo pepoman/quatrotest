@@ -24,6 +24,7 @@ jobs:
           command -V python
           sudo /usr/bin/python get-pip.py
           echo install jupyter and dependencies 
+          pip install jupyter_nbextensions_configurator
           sudo /usr/bin/python -m pip install ipykernel jupyter jupyter_cms ipython jupyter_nbextensions_configurato
           quarto create-project myproject
           cd myproject; rm _quarto.yml
