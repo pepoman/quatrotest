@@ -12,11 +12,7 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
           sudo apt-get update
-          echo install python 3.6
-          sudo apt-get install python3.6
-          echo install pip 3.6
-          wget https://bootstrap.pypa.io/get-pip.py
-          sudo /usr/bin/python get-pip.py
+          sudo apt-get install python3.6; wget https://bootstrap.pypa.io/get-pip.py; sudo /usr/bin/python get-pip.py
           echo INSTALL jupyter configurator
           pip install jupyter_nbextensions_configurator
           echo INSTALL jupyter
