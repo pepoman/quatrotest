@@ -14,7 +14,10 @@ jobs:
           quarto create-project myproject
           cd myproject; rm _quarto.yml
           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-          quarto render myproject --to html
+          echo _quatro.yml content:
+          cat ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+          
+#         quarto render myproject --to html
 
 
 #          echo crating symbolic link
