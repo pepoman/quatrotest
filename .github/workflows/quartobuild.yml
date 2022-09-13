@@ -17,7 +17,7 @@ jobs:
            echo INSTALLING texlive
            sudo apt-get install texlive
            echo STARTING R
-           sudo start R
+           start R
            echo INSTALLING R Packages
            install.packages(“tinytex”)
            tinytex::install_tinytex() 
