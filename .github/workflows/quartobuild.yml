@@ -14,7 +14,7 @@ jobs:
           echo show files
           ls -l
           quarto create-project myproject
-          mv -f _quarto.yml /myproyect/
+          mv -f _quarto.yml myproyect/
           cd myproyect
           echo list contents of my project:
           ls -l
