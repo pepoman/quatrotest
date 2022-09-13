@@ -27,7 +27,6 @@ jobs:
         uses: lc5415/rmarkdown-action@v1
         with:
           input_file: markdown/hello.qmd
-	  output_format: html_document
 
 
 
