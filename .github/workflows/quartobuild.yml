@@ -19,9 +19,7 @@ jobs:
           ls -l ~/work/quatrotest/quatrotest/myproject/
           echo markdown folder files:
           ls -ls ~/work/quatrotest/quatrotest/myproject/markdown
-         
-         
-     # quarto render myproject --to html
+          quarto render myproject --to html
 
 
 #          echo crating symbolic link
