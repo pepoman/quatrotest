@@ -16,6 +16,8 @@ jobs:
           quarto create-project myproject
           echo list files after creating proyect
           ls -l
+          echo original _quarto.yml file
+          cat _quarto.yml
           echo files inside of myproject
           cd myproject
           ls -l
