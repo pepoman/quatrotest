@@ -16,6 +16,7 @@ jobs:
           pip install jupyter_nbextensions_configurator
           git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git; pip install -e jupyter_contrib_nbextensions
           jupyter contrib nbextension install --user
+          pip install jupyter-latex-envs
           jupyter nbextension install --py latex_envs
           jupyter nbextension enable --py latex_envs
           echo Jupyter installation complete
