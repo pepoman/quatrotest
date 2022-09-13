@@ -19,7 +19,8 @@ jobs:
           pip install jupyter-latex-envs
           jupyter nbextension install --py latex_envs
           jupyter nbextension enable --py latex_envs
-          echo Jupyter installation complete
+          import latex_envs
+          echo JUPYTER INSTALLATION COMPLETE
           quarto create-project myproject
           cd myproject; rm _quarto.yml
           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
