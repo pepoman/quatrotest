@@ -11,24 +11,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
-           quarto create-project
-           echo show files
-           ls -l
-           echo show content of _quarto.yml
-           cat _quarto.yml
-           rm _quarto.yml
-           git init
-           git remote add -f origin https://github.com/pepoman/quatrotest.git
-           git config core.sparseCheckout true
-           echo "_quarto.yml" >> .git/info/sparse-checkout
-           git pull origin master
-           echo show directory
-           pwd
-           echo show files after git clone 
-           ls -l
-           echo show new content of _quarto.yml
-           cat _quarto.yml
-          
+          echo show files
+          ls -l
+  # quarto create-project
+                    
 #      - name: Render Quarto Project
 #        uses: quarto-dev/quarto-actions/render@v2
 #        with:
