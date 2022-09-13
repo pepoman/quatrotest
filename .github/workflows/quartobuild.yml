@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
-           install.packages("mvtnorm", lib="/usr/lib/R/library")
+           R CMD INSTALL mvtnorm
            quarto create-project myproject
            cd myproject; rm _quarto.yml
            mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
