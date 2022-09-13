@@ -16,7 +16,11 @@ jobs:
           quarto create-project myproject
           echo list files after creating proyect
           ls -l
-          ln -s _quarto.yml myproyect/_quarto.yml
+          echo files inside of myproject
+          cd myproject
+          ls -l
+          echo crating symbolic link
+          ln -s _quarto.yml /home/runner/work/quatrotest/quatrotest/myproject/_quarto.yml
 
 #      - name: Render Quarto Project
 #        uses: quarto-dev/quarto-actions/render@v2
