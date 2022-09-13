@@ -12,13 +12,10 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
            sudo apt-get update
-           echo INSTALLING pandoc
            sudo apt-get install pandoc
-           echo INSTALLING texlive
            sudo apt-get install texlive
            echo STARTING R
            R --vanilla
-           echo INSTALLING R Packages
            install.packages(“tinytex”)
            tinytex::install_tinytex() 
            install.packages(“rmarkdown”)
