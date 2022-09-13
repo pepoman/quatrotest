@@ -15,7 +15,7 @@ jobs:
             ls -l /usr/local/lib/R/site-library
             echo show /usr/lib/R/site-library content
             ls -l /usr/lib/R/site-library
-            cho show /usr/lib/R/library content
+            echo show /usr/lib/R/library content
             ls -l /usr/lib/R/library
   #         quarto create-project myproject
   #         cd myproject; rm _quarto.yml
