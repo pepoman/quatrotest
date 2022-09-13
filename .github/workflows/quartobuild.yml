@@ -27,7 +27,10 @@ jobs:
         uses: lc5415/rmarkdown-action@v1
         with:
           input_file: markdown/hello.qmd
-
+          run: |
+             echo print working directory
+             ls -l
+             
 
 
 
