@@ -16,7 +16,7 @@ jobs:
           quarto create-project myproject
           echo list files after creating proyect
           ls -l
-          mv -f _quarto.yml myproyect/_quarto.yml
+          cp -i _quarto.yml myproyect/_quarto.yml
 
 #      - name: Render Quarto Project
 #        uses: quarto-dev/quarto-actions/render@v2
