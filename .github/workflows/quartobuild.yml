@@ -16,6 +16,8 @@ jobs:
           pip install jupyter_nbextensions_configurator
           git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git; pip install -e jupyter_contrib_nbextensions
           jupyter contrib nbextension install --user
+          jupyter nbextension install --py latex_envs [--user|--sys-prefix|--system]
+          jupyter nbextension enable --py latex_envs [--user|--sys-prefix|--system]
           echo Jupyter installation complete
           quarto create-project myproject
           cd myproject; rm _quarto.yml
