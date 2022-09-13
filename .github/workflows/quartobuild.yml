@@ -14,11 +14,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install python3.6; wget https://bootstrap.pypa.io/get-pip.py; sudo /usr/bin/python get-pip.py
           pip install jupyter_nbextensions_configurator
-          git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git; pip install -e jupyter_contrib_nbextensions
-          jupyter contrib nbextension install --user
+          git clone https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
+          pip install -e jupyter_contrib_nbextensions
           pip install jupyter-latex-envs
-          jupyter nbextension install --py latex_envs
-          jupyter nbextension enable --py latex_envs
           echo JUPYTER INSTALLATION COMPLETE
           quarto create-project myproject
           cd myproject; rm _quarto.yml
