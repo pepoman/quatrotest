@@ -15,9 +15,11 @@ jobs:
          sudo apt-get install -f r-base
          sudo apt-get install r-base-core
          wget https://launchpad.net/~c2d4u.team/+archive/ubuntu/c2d4u4.0+
-         sudo apt-get install r-cran-markdown
+         sudo apt install r-cran-rstan
          
          
+         
+  #         sudo apt-get install r-cran-markdown       
   #         sudo apt-get install cmake
   #         install.packages("rmarkdown")
   #         quarto create-project myproject
