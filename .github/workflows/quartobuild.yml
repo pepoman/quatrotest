@@ -14,12 +14,14 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - uses: r-lib/actions/setup-renv@v1
       - uses: r-lib/actions/setup-r-dependencies@v1
+        with: 
+          working-directory: /usr/lib/R/library
       - run: |
-           quarto create-project myproject
-           cd myproject; rm _quarto.yml
-           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-           mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-           quarto render --to html      
+  #         quarto create-project myproject
+  #         cd myproject; rm _quarto.yml
+  #         mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+  #         mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
+  #         quarto render --to html      
      
      
            
