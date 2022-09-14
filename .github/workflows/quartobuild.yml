@@ -13,16 +13,26 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
       - uses: r-lib/actions/setup-r@v1
       - uses: r-lib/actions/setup-renv@v1
+      - name: prepare environment
+        run: |
+           sudo ln -s -/usr/local/lib/R/site-library /home/runner/work/quatrotest/R/site-library
+           sudo ln -s -/usr/lib/R/site-library /home/runner/work/quatrotest/usr/lib/R/site-library
+           sudo ln -s -/usr/lib/R/library /home/runner/work/quatrotest//usr/lib/R/library
       - uses: r-lib/actions/setup-r-dependencies@v1
       - name: Install dependencies
         run: |
-           quarto create-project myproject
-           cd myproject; rm _quarto.yml
-           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-           mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-           quarto render --to html      
+#           quarto create-project myproject
+#           cd myproject; rm _quarto.yml
+#           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+#           mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
+#           quarto render --to html      
      
      #  default: ~/work/quatrotest/quatrotest
+     
+     
+      # sudo mkdir /home/runner/work/quatrotest/R/site-library
+      # sudo mkdir /home/runner/work/quatrotest/usr/lib/R/site-library
+      # sudo mkdir /home/runner/work/quatrotest//usr/lib/R/library
      
            
     #     R remotes::install_deps(dependencies = TRUE)
