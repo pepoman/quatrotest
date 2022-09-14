@@ -1,68 +1,18 @@
-name: Render and deploy Quarto files
+
+name: quarto-setup
 
 on: 
   push:
-  pull_request:
+    branches: main
 
 jobs:
-  quarto-render-and-deploy:
+  quarto-linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-
-    - name: "Install Quarto and render"
-      uses: pommevilla/quarto-render@main
-
-    - name: "Deploy to rendered-pages"
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/master'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#jobs:
-#  quarto-linux:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: quarto-dev/quarto-actions/setup@v2
-#      - uses: r-lib/actions/setup-pandoc@v1
-#      - uses: r-lib/actions/setup-r@v1
-#      - uses: r-lib/actions/setup-renv@v1
-#      - name: prepare environment
-#        run: |
-#           sudo mkdir -p /home/runner/work/quatrotest/library2
-#           sudo ln -s ~/usr/local/lib/R/site-library /home/runner/work/quatrotest/
-#           sudo ln -s ~/usr/lib/R/site-library /home/runner/work/quatrotest/library2/
-#           sudo ln -s ~/usr/lib/R/library /home/runner/work/quatrotest/ 
-#      - uses: r-lib/actions/setup-r-dependencies@v1
-#      - name: Install dependencies
-#        run: |
-#           quarto create-project myproject
-#           cd myproject; rm _quarto.yml
-#           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-#           mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-#           quarto render --to html      
-
-
-
-
-
+      - uses: actions/checkout@v2
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - run: |
+          quarto --version
+          pwd
+          ls -l
+          quarto render markdown/index.md --to html
