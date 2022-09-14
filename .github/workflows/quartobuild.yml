@@ -1,22 +1,25 @@
-name: quarto-setup
+name: Render and deploy Quarto files
 
 on: 
   push:
-    branches: jp-test
-    
+  pull_request:
+
 jobs:
   quarto-render-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: "Install Quarto and render"
-      - uses: pommevilla/quarto-render@main
-      - run: |
-          quarto --version
-          pwd
-          ls -l
-          quarto render markdown/index.md --to html
+    - name: "Install Quarto and render"
+      uses: pommevilla/quarto-render@main
+
+#    - name: "Deploy to rendered-pages"
+#      uses: peaceiris/actions-gh-pages@v3
+#      if: github.ref == 'refs/heads/master'
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
+#        publish_dir: ./_site
+
 
 
 
