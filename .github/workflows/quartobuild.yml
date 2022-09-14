@@ -37,7 +37,7 @@ jobs:
           unlink(".github/pkg.lock")
           cat("::endgroup::\n")
         shell: Rscript {0}
-        working-directory: /home/runner/work/quatrotest/quatrotest/renv/library/R-4.2/x86_64-pc-linux-gnu
+ #       working-directory: /home/runner/work/quatrotest/quatrotest/renv/library/R-4.2/x86_64-pc-linux-gnu
      
      
   #         quarto create-project myproject
