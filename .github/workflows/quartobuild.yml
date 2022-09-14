@@ -36,7 +36,7 @@ jobs:
           unlink(".github/pkg.lock")
           cat("::endgroup::\n")
         shell: Rscript {0}
-        working-directory: ~/work/quatrotest/quatrotest
+        working-directory: /tmp/*/downloaded_packages
      
      
   #         quarto create-project myproject
