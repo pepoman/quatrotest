@@ -12,11 +12,11 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
            python3 -m pip install jupyter matplotlib plotly_express
-  #         quarto create-project myproject
-  #         cd myproject; rm _quarto.yml
-  #         mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-  #         mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-  #         quarto render --to html
+           quarto create-project myproject
+           cd myproject; rm _quarto.yml
+           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+           mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
+           quarto render --to html
              
 
 
