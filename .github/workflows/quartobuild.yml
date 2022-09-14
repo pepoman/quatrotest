@@ -15,7 +15,7 @@ jobs:
            cd myproject; rm _quarto.yml
            mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
            mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-           quarto render myproject --to html      
+           quarto render --to html   
      
   
   
