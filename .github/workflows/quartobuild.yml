@@ -14,11 +14,8 @@ jobs:
          sudo apt-get update
          sudo apt-get install -f r-base
          sudo apt-get install r-base-core
-         sudo apt-get install cmake
-         sudo apt-get install r-api
-           
-           
-  # sudo apt-get install r-cran-markdown
+         sudo apt-get install cmake           
+         sudo apt-get install r-cran-markdown
   #         install.packages("rmarkdown")
   #         quarto create-project myproject
   #         cd myproject; rm _quarto.yml
