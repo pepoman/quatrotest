@@ -15,7 +15,7 @@ jobs:
       - uses: r-lib/actions/setup-renv@v1
       - name: prepare environment
         run: |
-           sudo mdir -p /home/runner/work/quatrotest/library2
+           sudo mkdir -p /home/runner/work/quatrotest/library2
            sudo ln -s ~/usr/local/lib/R/site-library /home/runner/work/quatrotest/
            sudo ln -s ~/usr/lib/R/site-library /home/runner/work/quatrotest/library2/
            sudo ln -s ~/usr/lib/R/library /home/runner/work/quatrotest/ 
