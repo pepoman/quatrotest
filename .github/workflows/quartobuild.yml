@@ -14,8 +14,7 @@ jobs:
       - name: Install dependencies  
         run: |
           ## Installing/Updating packages
-          LD_LIBRARY_PATH=/home/runner/work/quatrotest/quatrotest/renv/library/R-4.2/
-          export LD_LIBRARY_PATH
+          .libPaths(c("/home/runner/work/quatrotest/quatrotest/renv/library/R-4.2/","/home/runner/work/quatrotest/quatrotest/renv/library/R-4.2/,"/home/runner/work/quatrotest/quatrotest/renv/library/R-4.2/"))
           cat("::group::Installing/updating packages\n")
           Sys.setenv("PKGCACHE_HTTP_VERSION" = "2")
           pak::lockfile_install(".github/pkg.lock")
