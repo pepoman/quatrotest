@@ -3,60 +3,62 @@ name: quarto-setup
 on: 
   push:
     branches: jp-test
-
+    
 jobs:
-  quarto-linux:
+  quarto-render-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: quarto-dev/quarto-actions/setup@v2
-      - uses: r-lib/actions/setup-pandoc@v1
-      - uses: r-lib/actions/setup-r@v1
-      - uses: r-lib/actions/setup-renv@v1
-      - name: prepare environment
-        run: |
-           sudo mkdir -p /home/runner/work/quatrotest/library2
-           sudo ln -s ~/usr/local/lib/R/site-library /home/runner/work/quatrotest/
-           sudo ln -s ~/usr/lib/R/site-library /home/runner/work/quatrotest/library2/
-           sudo ln -s ~/usr/lib/R/library /home/runner/work/quatrotest/ 
-      - uses: r-lib/actions/setup-r-dependencies@v1
-      - name: Install dependencies
-        run: |
+
+      - name: "Install Quarto and render"
+      - uses: pommevilla/quarto-render@main
+      - run: |
+          quarto --version
+          pwd
+          ls -l
+          quarto render markdown/index.md --to html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#jobs:
+#  quarto-linux:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: quarto-dev/quarto-actions/setup@v2
+#      - uses: r-lib/actions/setup-pandoc@v1
+#      - uses: r-lib/actions/setup-r@v1
+#      - uses: r-lib/actions/setup-renv@v1
+#      - name: prepare environment
+#        run: |
+#           sudo mkdir -p /home/runner/work/quatrotest/library2
+#           sudo ln -s ~/usr/local/lib/R/site-library /home/runner/work/quatrotest/
+#           sudo ln -s ~/usr/lib/R/site-library /home/runner/work/quatrotest/library2/
+#           sudo ln -s ~/usr/lib/R/library /home/runner/work/quatrotest/ 
+#      - uses: r-lib/actions/setup-r-dependencies@v1
+#      - name: Install dependencies
+#        run: |
 #           quarto create-project myproject
 #           cd myproject; rm _quarto.yml
 #           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
 #           mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
 #           quarto render --to html      
-     
-     #  default: ~/work/quatrotest/quatrotest
-     
-     
 
-     
-           
-    #     R remotes::install_deps(dependencies = TRUE)
-    #     shell: Rscript {0}
-    
-    #     sudo apt-get update
-    #     sudo apt-get install -f r-base
-    #     sudo apt-get install r-base-core
-    #     wget https://launchpad.net/~c2d4u.team/+archive/ubuntu/c2d4u4.0+
-    #     R -e \\install.packages("rmarkdown", repos = "https://cran.revolutionanalytics.com")
-         
-         
-  #         sudo apt-get install r-cran-markdown       
-  #         sudo apt-get install cmake
-  #         install.packages("rmarkdown")
-  #         quarto create-project myproject
-  #         cd myproject; rm _quarto.yml
-  #         mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-  #         mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-  #         quarto render --to html
-             
-
-
-
-#            python3 -m pip install jupyter matplotlib plotly_express
 
 
 
