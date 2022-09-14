@@ -11,9 +11,14 @@ jobs:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
-           sudo apt-get install cmake
-           sudo apt-get install r-base-core
-           sudo apt-get install r-api-3.5
+         echo show sources list
+         cat  /etc/apt/sources.list      
+         echo after adding entry
+         echo "/etc/apt/sources.list">/etc/apt/sources.list
+           
+    # sudo apt-get install cmake
+    # sudo apt-get install r-base-core 3.6.3-2
+    # sudo apt-get install r-api-3.5
            
            
   # sudo apt-get install r-cran-markdown
