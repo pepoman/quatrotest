@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
+           sudo apt-get install cmake
            sudo apt-get install r-cran-markdown
   #         install.packages("rmarkdown")
   #         quarto create-project myproject
