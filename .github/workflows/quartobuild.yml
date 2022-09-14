@@ -10,14 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
-      - uses: r-lib/actions/setup-pandoc@v1
-      - uses: r-lib/actions/setup-r@v1
-      - uses: r-lib/actions/setup-renv@v1
       - uses: r-lib/actions/setup-r-dependencies@v1
       - name: Install dependencies  
         run: |
           ## Installing/Updating packages
-          .libPaths(c("/home/runner/work/quatrotest/quatrotest/renv/library/R-4.2/","usr/local/lib/R/site-library/","/usr/lib/R/library"))
+          export R_LIBS='/home/runner/work/quatrotest/quatrotest/renv/library/'
           cat("::group::Installing/updating packages\n")
           Sys.setenv("PKGCACHE_HTTP_VERSION" = "2")
           pak::lockfile_install(".github/pkg.lock")
@@ -72,3 +69,9 @@ jobs:
 
 
 #            python3 -m pip install jupyter matplotlib plotly_express
+
+
+
+#      - uses: r-lib/actions/setup-pandoc@v1
+#      - uses: r-lib/actions/setup-r@v1
+#      - uses: r-lib/actions/setup-renv@v1
