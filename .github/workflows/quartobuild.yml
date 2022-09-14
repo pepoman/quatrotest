@@ -12,6 +12,7 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
            sudo apt-get install cmake
+           sudo apt-get install r-base-core 3.6.3-2
            sudo apt-get install r-api-3.5
            
            
