@@ -11,11 +11,18 @@ jobs:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
-         sudo apt-get update
-         sudo apt-get install -f r-base
-         sudo apt-get install r-base-core
-         wget https://launchpad.net/~c2d4u.team/+archive/ubuntu/c2d4u4.0+
-         R -e \\install.packages("rmarkdown", repos = "https://cran.revolutionanalytics.com")
+           install.packages(c("gmodels", "class"))
+           remotes::install_deps(dependencies = TRUE)
+           shell: Rscript {0}
+    
+    
+    
+    
+    #     sudo apt-get update
+    #     sudo apt-get install -f r-base
+    #     sudo apt-get install r-base-core
+    #     wget https://launchpad.net/~c2d4u.team/+archive/ubuntu/c2d4u4.0+
+    #     R -e \\install.packages("rmarkdown", repos = "https://cran.revolutionanalytics.com")
          
          
   #         sudo apt-get install r-cran-markdown       
