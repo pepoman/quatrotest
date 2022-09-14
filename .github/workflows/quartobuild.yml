@@ -14,15 +14,38 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - uses: r-lib/actions/setup-renv@v1
       - uses: r-lib/actions/setup-r-dependencies@v1
-        with: 
-          working-directory: ~/work/quatrotest/quatrotest
-      - run: |
+      - name: Install dependencies  
+        run: |
+          ## Installing/Updating packages
+          cat("::group::Installing/updating packages\n")
+          Sys.setenv("PKGCACHE_HTTP_VERSION" = "2")
+          pak::lockfile_install(".github/pkg.lock")
+          cat("::endgroup::\n")
+          cat("::group::Session info\n")
+          if (requireNamespace("sessioninfo", quietly = TRUE)) {
+            if (packageVersion("sessioninfo") >= "1.2.1") {
+              sessioninfo::session_info(pkgs = "installed", include_base = TRUE)
+            } else {
+              options(width = 200)
+              sessioninfo::session_info(rownames(installed.packages()), include_base=TRUE)
+            }
+          } else {
+            sessionInfo()
+          }
+          ## Clean up lock file
+          unlink(".github/pkg.lock")
+          cat("::endgroup::\n")
+        shell: Rscript {0}
+        working-directory: ~/work/quatrotest/quatrotest
+     
+     
   #         quarto create-project myproject
   #         cd myproject; rm _quarto.yml
   #         mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
   #         mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
   #         quarto render --to html      
      
+     #  default: ~/work/quatrotest/quatrotest
      
            
     #     R remotes::install_deps(dependencies = TRUE)
