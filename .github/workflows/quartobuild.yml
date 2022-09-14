@@ -15,7 +15,7 @@ jobs:
       - uses: r-lib/actions/setup-renv@v1
       - uses: r-lib/actions/setup-r-dependencies@v1
         with: 
-          working-directory: /usr/lib/R/library
+          working-directory: ~/work/quatrotest/quatrotest
       - run: |
   #         quarto create-project myproject
   #         cd myproject; rm _quarto.yml
