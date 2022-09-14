@@ -11,8 +11,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
-           python3 -m pip install jupyter matplotlib plotly_express
-           install.packages("rmarkdown")
+           sudo dpkg -i $DEB
+           tar xvzf $TGZ --strip-components 1 -C ~/pandoc
+           ar p $DEB data.tar.gz | tar xvz --strip-components 2  ~/pandoc
+  #         install.packages("rmarkdown")
   #         quarto create-project myproject
   #         cd myproject; rm _quarto.yml
   #         mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
@@ -22,4 +24,4 @@ jobs:
 
 
 
-
+#            python3 -m pip install jupyter matplotlib plotly_express
