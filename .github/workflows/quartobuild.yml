@@ -12,8 +12,7 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
          sudo apt-get update
-         sudo apt-cache showpkg r-base 
-         sudo apt-get install -f r-base=3.0.2-1raring0
+         sudo apt-get install -f r-base
          
          
          
