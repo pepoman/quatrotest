@@ -15,7 +15,7 @@ jobs:
          sudo apt-get install -f r-base
          sudo apt-get install r-base-core
          wget https://launchpad.net/~c2d4u.team/+archive/ubuntu/c2d4u4.0+
-         sudo install.packages('rmarkdown')
+         sudo install.packages(rmarkdown)
          
          
          
