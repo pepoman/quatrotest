@@ -14,7 +14,6 @@ jobs:
       - name: Install dependencies  
         run: |
           ## Installing/Updating packages
-          export R_LIBS='/home/runner/work/quatrotest/quatrotest/renv/library/'
           cat("::group::Installing/updating packages\n")
           Sys.setenv("PKGCACHE_HTTP_VERSION" = "2")
           pak::lockfile_install(".github/pkg.lock")
