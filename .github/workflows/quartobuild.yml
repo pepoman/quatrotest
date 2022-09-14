@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
-           Remotes: rstudio/rmarkdown@70b9f1ec4ce71628d
+           R install.packages("rmarkdown", dep = TRUE)
   #         install.packages("rmarkdown")
   #         quarto create-project myproject
   #         cd myproject; rm _quarto.yml
