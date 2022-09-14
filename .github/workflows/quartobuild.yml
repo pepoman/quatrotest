@@ -16,7 +16,7 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v1
       - name: Install dependencies  
         run: |
-          cd /home/runner/work/quatrotest/quatrotest/renv/library/R-4.2/
+          echo "$HOME/.local/bin" >> "/home/runner/work/quatrotest/quatrotest/renv/library/R-4.2/"
           ## Installing/Updating packages
           cat("::group::Installing/updating packages\n")
           Sys.setenv("PKGCACHE_HTTP_VERSION" = "2")
