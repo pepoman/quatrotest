@@ -14,8 +14,11 @@ jobs:
          sudo apt-get update
          sudo apt-get install -f r-base
          sudo apt-get install r-base-core
-         sudo apt-get install cmake           
+         wget https://launchpad.net/~c2d4u.team/+archive/ubuntu/c2d4u4.0+
          sudo apt-get install r-cran-markdown
+         
+         
+  #         sudo apt-get install cmake
   #         install.packages("rmarkdown")
   #         quarto create-project myproject
   #         cd myproject; rm _quarto.yml
