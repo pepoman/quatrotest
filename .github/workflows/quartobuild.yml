@@ -14,11 +14,9 @@ jobs:
       - run: |
          cd /
          echo PRINT local/bin/R content
-         cd /usr/local/bin/R
+         cd /usr/local/bin/
          ls -l
-         echo PRINT local/bin/Rscript content
-         cd /usr/local/bin/Rscript
-         ls -l
+
          
   
   
