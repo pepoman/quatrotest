@@ -10,26 +10,31 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
-      - run: |
-           sudo apt update; sudo apt -s upgrade
-           echo UPGRADING R-BASE-CORE
-           sudo apt upgrade r-base r-base-dev
-           echo R BASE CORE UPGRADE COMPLETE
-           sudo apt install python3-pip python3-dev;
-           pip install jupyter; pip install numpy; pip install matplotlib
-           echo INSTALLING RAPI3.4
-           sudo add-apt-repository ppa:marutter/c2d4u3.5
-           sudo apt-get update
-           sudo apt-get install r-api-3.5
-           echo INSTALLING RAPI3.4 COMPLETE
-           echo INSTALL JSONLITE
-           sudo apt-get install -y r-cran-jsonlite
-           echo JSONLITE INSTALLATION COMPLETE
-           quarto create-project myproject
-           cd myproject; rm _quarto.yml
-           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-           mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-           quarto render --to html   
+
+ 
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: html # If set, it will be equivalent to `quarto render --to html`
+          path: source-folder # By default, the current working dir is used i.e `quarto render .`
+
+
+
+
+
+
+
+     #      sudo apt update; sudo apt -s upgrade
+     #      echo UPGRADING R-BASE-CORE
+     #      sudo apt upgrade r-base r-base-dev
+     #      echo R BASE CORE UPGRADE COMPLETE
+     #      sudo apt install python3-pip python3-dev;
+     #      pip install jupyter; pip install numpy; pip install matplotlib
+     #      quarto create-project myproject
+     #      cd myproject; rm _quarto.yml
+     #      mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+     #      mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
+     #      quarto render --to html   
      
   
   
