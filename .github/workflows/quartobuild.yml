@@ -18,7 +18,9 @@ jobs:
            sudo apt install python3-pip python3-dev;
            pip install jupyter; pip install numpy; pip install matplotlib
            echo INSTALLING RAPI3.4
-           sudo apt-get install -y r-api-3.4
+           sudo add-apt-repository ppa:marutter/c2d4u3.4
+           sudo apt-get update
+           sudo apt-get install r-api-3.4
            echo INSTALLING RAPI3.4 COMPLETE
            echo INSTALL JSONLITE
            sudo apt-get install -y r-cran-jsonlite
