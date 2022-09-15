@@ -12,6 +12,9 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
            sudo apt update; sudo apt -s upgrade
+           echo UPGRADING R-BASE-CORE
+           sudo apt upgrade r-base r-base-dev
+           echo R BASE CORE UPGRADE COMPLETE
            sudo apt install python3-pip python3-dev;
            pip install jupyter; pip install numpy; pip install matplotlib
            echo INSTALL JSONLITE
