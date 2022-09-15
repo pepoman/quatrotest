@@ -13,7 +13,7 @@ jobs:
       - run: |
           sudo apt-get install pandoc
           sudo apt-get install texlive
-          R
+          R --vanilla
           install.packages(“tinytex”)
           tinytex::install_tinytex() # install TinyTeX
           install.packages(“rmarkdown”)
