@@ -16,7 +16,8 @@ jobs:
            mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
            mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
            quarto render --to html   
-     
+           echo show files 
+           tree /home/runner/work/quatrotest/quatrotest/myproject
 
 
 
