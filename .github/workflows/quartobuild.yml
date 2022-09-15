@@ -13,8 +13,7 @@ jobs:
       - run: |
            sudo apt update
            sudo apt install python3-pip python3-dev
-           pip install jupyter
-           sudo apt install python3-numpy
+           pip install jupyter; pip install numpy; pip install matplotlib
            echo Creating Project
            quarto create-project myproject
            cd myproject; rm _quarto.yml
