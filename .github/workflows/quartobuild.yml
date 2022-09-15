@@ -10,8 +10,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: quarto-dev/quarto-actions/setup@v2
-
- 
+      - run: |
+          sudo apt-get install pandoc
+          apt-get install texlive
+          R
+          install.packages(“tinytex”)
+          tinytex::install_tinytex() # install TinyTeX
+          install.packages(“rmarkdown”)
+      
+      
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
         with:
