@@ -12,7 +12,7 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
           sudo apt-get install pandoc
-          apt-get install texlive
+          sudo apt-get install texlive
           R
           install.packages(“tinytex”)
           tinytex::install_tinytex() # install TinyTeX
