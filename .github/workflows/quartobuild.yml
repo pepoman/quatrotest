@@ -14,9 +14,11 @@ jobs:
       - run: |
          cd /
          echo PRINT local/bin/R content
-         sudo tree /usr/local/bin/R
+         cd /usr/local/bin/R
+         ls -l
          echo PRINT local/bin/Rscript content
-         sudo tree /usr/local/bin/Rscript
+         cd /usr/local/bin/Rscript
+         ls -l
          
   
   
