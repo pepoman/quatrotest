@@ -14,7 +14,7 @@ jobs:
            sudo apt update; sudo apt -s upgrade
            sudo apt install python3-pip python3-dev; sudo apt-get install -y r-cran-jsonlite
            pip install jupyter; pip install numpy; pip install matplotlib
-           sudo apt-get -y install r-cran-jsonlite
+           sudo aptitude update; sudo aptitude -y install r-cran-jsonlite
            quarto create-project myproject
            cd myproject; rm _quarto.yml
            mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
