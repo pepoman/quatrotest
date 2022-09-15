@@ -13,10 +13,8 @@ jobs:
       - run: |
           sudo apt-get install pandoc
           sudo apt-get install texlive
-          R --vanilla
-          install.packages(“tinytex”)
-          tinytex::install_tinytex() # install TinyTeX
-          install.packages(“rmarkdown”)
+          R CMD INSTALL install.packages(“tinytex”)
+          R CMD INSTALL install.packages(“rmarkdown”)
       
       
       - name: Render Quarto Project
