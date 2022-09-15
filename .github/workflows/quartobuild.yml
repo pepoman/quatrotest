@@ -12,7 +12,7 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: |
            sudo apt install python3-pip python3-dev;
-           pip install jupyter;
+           pip install jupyter; pip install numpy; pip install matplotlib
            quarto create-project myproject
            cd myproject; rm _quarto.yml
            mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
