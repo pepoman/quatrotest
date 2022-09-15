@@ -18,7 +18,7 @@ jobs:
            sudo apt install python3-pip python3-dev;
            pip install jupyter; pip install numpy; pip install matplotlib
            echo INSTALLING RAPI3.4
-           sudo add-apt-repository ppa:marutter/c2d4u3.4
+           sudo add-apt-repository ppa:marutter/c2d4u3.5
            sudo apt-get update
            sudo apt-get install r-api-3.5
            echo INSTALLING RAPI3.4 COMPLETE
@@ -34,24 +34,14 @@ jobs:
   
   
   
-  #  default: ~/work/quatrotest/quatrotest
-     
-           
-    #     R remotes::install_deps(dependencies = TRUE)
-    #     shell: Rscript {0}
-    
-    #     sudo apt-get update
-    #     sudo apt-get install -f r-base
-    #     sudo apt-get install r-base-core
-    #     wget https://launchpad.net/~c2d4u.team/+archive/ubuntu/c2d4u4.0+
-    #     R -e \\install.packages("rmarkdown", repos = "https://cran.revolutionanalytics.com")
-         
-         
-  #         sudo apt-get install r-cran-markdown       
-  #         sudo apt-get install cmake
-  #         install.packages("rmarkdown")
-  #         quarto create-project myproject
-  #         cd myproject; rm _quarto.yml
-  #         mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-  #         mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-  #         quarto render --to html
+
+
+
+
+
+
+
+
+
+
+
