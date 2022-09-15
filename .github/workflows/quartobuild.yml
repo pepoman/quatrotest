@@ -13,9 +13,10 @@ jobs:
       - run: |
           sudo apt-get install pandoc
           sudo apt-get install texlive
+          echo INSTALLING R PACKAGES
           R CMD INSTALL install.packages(“tinytex”)
           R CMD INSTALL install.packages(“rmarkdown”)
-      
+          
       
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
