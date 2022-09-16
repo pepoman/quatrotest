@@ -4,13 +4,18 @@ on:
   push:
     branches: jp-test
 
+
 jobs:
-  quarto-linux:
+  linux:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        r: ['3.2', '3.3', '3.4', '3.5', '3.6']
+    container: rstudio/r-base:${{ matrix.r }}-xenial
+    env:
+      CRAN: 'https://demo.rstudiopm.com/all/__linux__/xenial/latest'
     steps:
-      - uses: actions/checkout@v2
-      - uses: quarto-dev/quarto-actions/setup@v2
-      - uses: r-lib/actions/setup-r@v2
+      - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-r@master
       - uses: r-lib/actions/setup-pandoc@master
       - uses: r-lib/actions/setup-tinytex@master
@@ -27,19 +32,31 @@ jobs:
 
 
 
-      
-      
-      
-      
-      
 
 
 
 
 
-  
 
 
+
+
+
+
+
+
+
+
+
+
+#jobs:
+#  quarto-linux:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: quarto-dev/quarto-actions/setup@v2
+#      - uses: r-lib/actions/setup-r@v2
+#       run: |
 
 
 # Good for .md and .qmd
