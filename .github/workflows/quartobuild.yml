@@ -17,7 +17,7 @@ jobs:
           sudo apt install r-base
           R --version
           sudo R --vanilla <<EOF
-          install.packages("rmarkdown", dep = TRUE)
+          install.packages('rmarkdown', dep = TRUE)
           q()
           EOF
 
