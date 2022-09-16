@@ -21,9 +21,14 @@ jobs:
           install.packages("rmarkdown", repos = 'https://cran.r-project.org')
           q()
           EOF
-          sudo apt install python3-pip python3-dev;
-          pip install jupyter; pip install numpy; pip install matplotlib
-       
+          sudo apt install python3-pip python3-dev; pip install jupyter; pip install numpy; pip install matplotlib
+          quarto create-project myproject
+          cd myproject; rm _quarto.yml
+          mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+          mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
+          quarto render --to html   
+          echo show files 
+          tree /home/runner/work/quatrotest/quatrotest/myproject
        
 
 
