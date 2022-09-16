@@ -16,7 +16,7 @@ jobs:
           sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
           R --version
           sudo R --vanilla <<EOF
-          install.packages("rmarkdown")
+          install.packages('backports')
           q()
           EOF
 
