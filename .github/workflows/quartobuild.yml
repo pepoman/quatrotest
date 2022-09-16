@@ -15,46 +15,18 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update -y && sudo apt-get install -y libcurl4-openssl-dev
-          pip install jupyter; pip install numpy; pip install matplotlib
-          quarto create-project myproject
-          cd myproject; rm _quarto.yml
-          mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-          mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-          quarto render --to html   
-          echo show files 
-          tree /home/runner/work/quatrotest/quatrotest/myproject
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::pkgdown, local::., local::./tests/testthat/testpkg
+
+
+
+
       
       
       
       
       
-      
-   #   - run: |
-   #        sudo apt install python3-pip python3-dev;
-   #        pip install jupyter; pip install numpy; pip install matplotlib
-   #        quarto create-project myproject
-   #        cd myproject; rm _quarto.yml
-   #        mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-   #        mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-   #        quarto render --to html   
-   #        echo show files 
-   #        tree /home/runner/work/quatrotest/quatrotest/myproject
-
-
-      
-
-
-
-
-#      - uses: r-lib/actions/setup-r-dependencies@v2
-#        with:
-#         cache-version: 2
-#         extra-packages: |
-#            any::ggplot2
-#            any::rcmdcheck
-#         needs: |
-#            website
-#            coverage
 
 
 
@@ -64,17 +36,8 @@ jobs:
 
 
 
-          
-     #      sudo apt update; sudo apt -s upgrade
-     #      sudo apt upgrade r-base r-base-dev
-     #      sudo apt install python3-pip python3-dev;
 
-     
-#          sudo apt-get install pandoc
-#          sudo apt-get install texlive
-#          echo INSTALLING R PACKAGES
-#          R CMD INSTALL install.packages(“tinytex”)
-#          R CMD INSTALL install.packages(“rmarkdown”)  
+
   
 
 
