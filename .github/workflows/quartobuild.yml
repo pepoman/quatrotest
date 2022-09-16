@@ -19,6 +19,7 @@ jobs:
           sudo R --vanilla <<EOF 
           install.packages("jsonlite", repos = 'https://cran.r-project.org')
           install.packages("rmarkdown", repos = 'https://cran.r-project.org')
+          install.packages("ggplot2", repos = 'https://cran.r-project.org')
           q()
           EOF
           sudo apt install python3-pip python3-dev; pip install jupyter; pip install numpy; pip install matplotlib
