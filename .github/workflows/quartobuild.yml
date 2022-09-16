@@ -16,6 +16,10 @@ jobs:
           sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
           sudo apt install r-base
           R --version
+          sudo R --vanilla <<EOF
+          install.packages('forecast', repos='http://cran.us.r-project.org')
+          q()
+          EOF
 
 
 
