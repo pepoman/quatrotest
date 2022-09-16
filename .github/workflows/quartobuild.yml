@@ -14,14 +14,11 @@ jobs:
       - run: |
           sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
           sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
-          sudo apt install r-base; R --version
-          sudo apt install python3-pip python3-dev;
-          pip install jupyter; pip install numpy; pip install matplotlib
-          quarto create-project myproject
-          cd myproject; rm _quarto.yml
-          mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-          mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-          quarto render --to html   
+          R --version
+          sudo R --vanilla <<EOF
+          install.packages("rmarkdown")
+          q()
+          EOF
 
 
 
