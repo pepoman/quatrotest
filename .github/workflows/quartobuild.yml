@@ -18,7 +18,7 @@ jobs:
           sudo add-apt-repository ppa:c2d4u.team/c2d4u4.0+; sudo apt update; sudo apt-get install -y r-cran-jsonlite
           sudo R --vanilla <<EOF 
           install.packages("jsonlite", repos = 'https://cran.r-project.org')
-          install.packages("jsonlite", repos = 'https://cran.r-project.org')
+          install.packages("rmarkdown", repos = 'https://cran.r-project.org')
           q()
           EOF
        
