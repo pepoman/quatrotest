@@ -12,29 +12,15 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
       - uses: r-lib/actions/setup-r@v2
       - run: |
-         echo bin R content
-         cd /opt/R/4.2.1/bin/
-         ls -l
-         tree /opt/R/4.2.1/bin/
-         echo bin Rscript content
-         cd /opt/R/4.2.1/bin/
-         ls -l
-         tree /opt/R/4.2.1/bin/
-         
-  
-  
-  
-  
-  
-     #      sudo apt install python3-pip python3-dev;
-     #      pip install jupyter; pip install numpy; pip install matplotlib
-     #      quarto create-project myproject
-     #      cd myproject; rm _quarto.yml
-     #      mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-     #      mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-     #     quarto render --to html   
-     #      echo show files 
-     #      tree /home/runner/work/quatrotest/quatrotest/myproject
+           sudo apt install python3-pip python3-dev;
+           pip install jupyter; pip install numpy; pip install matplotlib
+           quarto create-project myproject
+           cd myproject; rm _quarto.yml
+           mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
+           mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
+           quarto render --to html   
+           echo show files 
+           tree /home/runner/work/quatrotest/quatrotest/myproject
 
 
       
