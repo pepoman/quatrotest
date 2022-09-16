@@ -17,6 +17,7 @@ jobs:
           R --version
           sudo R --vanilla <<EOF
           library()
+          remotes::install_github('rstudio/rmarkdown')
           q()
           EOF
 
