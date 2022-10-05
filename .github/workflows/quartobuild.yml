@@ -2,92 +2,59 @@ name: quarto-setup
 
 on: 
   push:
-    branches: jp-test
+    branches: none
 
 jobs:
   quarto-linux:
     runs-on: ubuntu-latest
+    container: jpgomezz/quarto:final            
     steps:
-      - uses: actions/checkout@v2
-      - uses: quarto-dev/quarto-actions/setup@v2
-      - uses: r-lib/actions/setup-r@v2
-      - run: |
-          sudo apt-get update -y; sudo apt-get upgrade -y; sudo apt-get install r-base r-base-dev
-          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-          sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
-          sudo add-apt-repository ppa:c2d4u.team/c2d4u4.0+; sudo apt update; sudo apt-get install -y r-cran-jsonlite
-          sudo R --vanilla <<EOF 
-          install.packages("jsonlite", repos = 'https://cran.r-project.org')
-          install.packages("rmarkdown", repos = 'https://cran.r-project.org')
-          install.packages("ggplot2", repos = 'https://cran.r-project.org')
-          install.packages("dplyr", repos = 'https://cran.r-project.org')
-          q()
-          EOF
-          sudo apt install python3-pip python3-dev; pip install jupyter; pip install numpy; pip install matplotlib
-          quarto create-project myproject; cd myproject; rm _quarto.yml
-          mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-          mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-          quarto render --to html  
+     - uses: actions/checkout@v1
+       name: Render files
+     - run: |
+          sudo apt-get update
+          sudo apt-get install tree
+          echo STARTING WITH THE PROJECT
+          cd /__w/quarto-actions/quarto-actions/
+          quarto render --to html
+          tree public/markdown/
+     - uses: actions/upload-artifact@master
+       with:
+        name: my-artifact
+        path: public/markdown/
 
 
-      - uses: actions/upload-artifact@v3
+  sftp-transfer:
+    needs: quarto-linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository content
+        uses: actions/checkout@master
+      - uses: actions/download-artifact@master
         with:
-          name: my-artifact
-          path: |
-            /home/runner/work/quatrotest/quatrotest/myproject/public/markdown/
-            /home/runner/work/quatrotest/quatrotest/myproject/public/site_libs
-
-
-
-
-#          sudo apt-get update -y; sudo apt-get upgrade -y; sudo apt-get install r-base r-base-dev
-#          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-#          sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
-#          sudo add-apt-repository ppa:c2d4u.team/c2d4u4.0+; sudo apt update; sudo apt-get install -y r-cran-jsonlite
-#          sudo R --vanilla <<EOF 
-#          install.packages("jsonlite", repos = 'https://cran.r-project.org')
-#          install.packages("rmarkdown", repos = 'https://cran.r-project.org')
-#          install.packages("ggplot2", repos = 'https://cran.r-project.org')
-#          install.packages("dplyr", repos = 'https://cran.r-project.org')
-#          q()
-#          EOF
-#          sudo apt install python3-pip python3-dev; pip install jupyter; pip install numpy; pip install matplotlib
-#          quarto create-project myproject; cd myproject; rm _quarto.yml
-#          mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-#          mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-#          quarto render --to html  
-
-
-
-
-
-       
-
-
-
-
-#          Working for .md, .qmd and .Rmd
-
-#          sudo apt-get update -y; sudo apt-get upgrade -y; sudo apt-get install r-base r-base-dev
-#          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-#          sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
-#          sudo add-apt-repository ppa:c2d4u.team/c2d4u4.0+; sudo apt update; sudo apt-get install -y r-cran-jsonlite
-#          sudo R --vanilla <<EOF 
-#          install.packages("jsonlite", repos = 'https://cran.r-project.org')
-#          install.packages("rmarkdown", repos = 'https://cran.r-project.org')
-#          install.packages("ggplot2", repos = 'https://cran.r-project.org')
-#          install.packages("dplyr", repos = 'https://cran.r-project.org')
-#          q()
-#          EOF
-#          sudo apt install python3-pip python3-dev; pip install jupyter; pip install numpy; pip install matplotlib
-#          quarto create-project myproject
-#          cd myproject; rm _quarto.yml
-#          mv ~/work/quatrotest/quatrotest/_quarto.yml ~/work/quatrotest/quatrotest/myproject/_quarto.yml
-#          mv ~/work/quatrotest/quatrotest/markdown ~/work/quatrotest/quatrotest/myproject/markdown
-#          quarto render --to html   
-#          echo show files 
-#          tree /home/runner/work/quatrotest/quatrotest/myproject
-
-
-
-
+         name: my-artifact
+         path: public/markdown/
+     
+      - run: | 
+          echo CHECKING ARTIFACT
+          ls -la /home/runner/work/quarto-actions/quarto-actions/public/markdown/
+     
+      - run: |
+          mkdir -p ${{ secrets.SSH_PATH }}
+          touch /home/runner/.ssh/known_hosts
+          touch ${{ secrets.SSH_CONFIG_PATH }}
+          echo "${{ secrets.SSH_CONFIG }}" >> ${{ secrets.SSH_CONFIG_PATH }}
+          echo "${{ secrets.PRIVATEKEY }}" > "/home/runner/.ssh/id_rsa"    
+          echo "${{ secrets.PUBLICKEY }}" > "/home/runner/.ssh/id_rsa.pub"      
+          echo "${{ secrets.KNOWN_HOSTS }}" > "/home/runner/.ssh/known_hosts"
+          chmod 700 "/home/runner/.ssh/"
+          chmod 644 "/home/runner/.ssh/known_hosts"
+          chmod 600 "/home/runner/.ssh/id_rsa"
+          chmod 644 "/home/runner/.ssh/id_rsa.pub"
+          chmod 600 "/home/runner/.ssh/config"
+          sftp -oPort=2222 dev.6ea2702b-ed4d-4196-b545-10c1de13b528@appserver.dev.6ea2702b-ed4d-4196-b545-10c1de13b528.drush.in <<END
+          put -r /home/runner/work/quarto-actions/quarto-actions/public/markdown/* /files/
+          
+          
+          
+          
